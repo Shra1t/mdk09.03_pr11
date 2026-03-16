@@ -58,15 +58,23 @@
 		</div>
 		
 		<script>
-			function EncryptData(data) {
-				var key = CryptoJS.enc.Utf8.parse("permaviat");
-				var iv = CryptoJS.enc.Utf8.parse("permaviat");
-				
-				var encrypted = CryptoJS.AES.encrypt(data, key, {
-					iv: iv
+			const secretKey = "qazxswedcvrftgbn";
+
+			function encryptAES(data, key) {
+				var keyHash = CryptoJS.MD5(key);
+				var keyBytes = CryptoJS.enc.Hex.parse(keyHash.toString());
+
+				var iv = CryptoJS.lib.WordArray.random(16);
+
+				var encrypted = CryptoJS.AES.encrypt(data, keyBytes, {
+					iv: iv,
+					mode: CryptoJS.mode.CBC,
+					padding: CryptoJS.pad.Pkcs7
 				});
-				
-				return encrypted.toString();
+
+				var combined = iv.concat(encrypted.ciphertext);
+
+				return CryptoJS.enc.Base64.stringify(combined);
 			}
 			
 			function LogIn() {
@@ -76,14 +84,14 @@
 				var _login = document.getElementsByName("_login")[0].value;
 				var _password = document.getElementsByName("_password")[0].value;
 
-				var encryptedLogin = EncryptData(_login);
-				var encryptedPassword = EncryptData(_password);
+				_login = encryptAES(_login, secretKey);
+				_password = encryptAES(_password, secretKey);
 				loading.style.display = "block";
 				button.className = "button_diactive";
 				
 				var data = new FormData();
-				data.append("login", encryptedLogin);
-				data.append("password", encryptedPassword);
+				data.append("login", _login);
+				data.append("password", _password);
 				
 				// AJAX запрос
 				$.ajax({
