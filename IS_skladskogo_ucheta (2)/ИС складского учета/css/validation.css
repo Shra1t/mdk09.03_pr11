@@ -1,0 +1,244 @@
+/* Стили валидации форм */
+.is-valid {
+    border-color: #10b981 !important;
+    box-shadow: 0 0 0 0.2rem rgba(16, 185, 129, 0.25) !important;
+}
+
+.is-invalid {
+    border-color: #ef4444 !important;
+    box-shadow: 0 0 0 0.1rem rgba(239, 68, 68, 0.15) !important;
+}
+
+.invalid-feedback {
+    display: block;
+    width: 100%;
+    margin-top: 0.15rem;
+    font-size: 0.8rem;
+    color: #dc2626;
+    font-weight: 400;
+    animation: slideDown 0.2s ease-out;
+}
+
+.valid-feedback {
+    display: block;
+    width: 100%;
+    margin-top: 0.15rem;
+    font-size: 0.8rem;
+    color: #059669;
+    font-weight: 400;
+}
+
+/* Стили для полей с ошибками */
+.form-control.is-invalid:focus {
+    border-color: #ef4444 !important;
+    box-shadow: 0 0 0 0.1rem rgba(239, 68, 68, 0.15) !important;
+}
+
+.form-control.is-valid:focus {
+    border-color: #10b981 !important;
+    box-shadow: 0 0 0 0.1rem rgba(16, 185, 129, 0.15) !important;
+}
+
+/* Убираем иконки Bootstrap из валидации */
+.form-control.is-invalid {
+    background-image: none !important;
+}
+
+.form-control.is-valid {
+    background-image: none !important;
+}
+
+/* Возвращаем стрелочки для обычных селектов */
+.form-select,
+select.form-select,
+.modal .form-select,
+.modal select.form-select {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23666'%3e%3cpolyline points='2,5 6,9 10,5'/%3e%3c/svg%3e") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 0.75rem center !important;
+    background-size: 16px 12px !important;
+    padding-right: 2.5rem !important; /* Увеличиваем отступ справа для стрелочки */
+}
+
+/* Убираем иконки валидации из селектов, но оставляем стрелочки */
+.form-select.is-invalid {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23666'%3e%3cpolyline points='2,5 6,9 10,5'/%3e%3c/svg%3e") !important;
+}
+
+.form-select.is-valid {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23666'%3e%3cpolyline points='2,5 6,9 10,5'/%3e%3c/svg%3e") !important;
+}
+
+/* Анимация для сообщений об ошибках */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Стили для обязательных полей */
+.form-label.required::after {
+    content: " *";
+    color: #ef4444;
+    font-weight: bold;
+}
+
+/* Улучшенные стили для модальных окон */
+.modal-content {
+    border: none !important;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15) !important;
+    border-radius: 12px !important;
+}
+
+.modal-header {
+    border-bottom: 1px solid #e5e7eb !important;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%) !important;
+}
+
+.modal-body {
+    padding: 2rem !important;
+}
+
+.modal-footer {
+    border-top: 1px solid #e5e7eb !important;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%) !important;
+}
+
+/* Предотвращение закрытия модального окна при клике вне его */
+.modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Стили для кнопок в модальных окнах */
+.modal-footer .btn {
+    margin-left: 0.5rem !important;
+    margin-right: 0 !important;
+}
+
+.modal-footer .btn:first-child {
+    margin-left: 0 !important;
+}
+
+/* Стили для счетчиков символов */
+.character-counter {
+    display: block;
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+    transition: color 0.3s ease;
+}
+
+.character-counter.text-danger {
+    font-weight: 600;
+    animation: pulse 0.5s ease-in-out;
+}
+
+.character-counter.text-warning {
+    font-weight: 500;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Стили для полей с превышением лимита */
+.form-control.over-limit {
+    border-color: #dc3545 !important;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25) !important;
+}
+
+/* Стили для полей, приближающихся к лимиту */
+.form-control.near-limit {
+    border-color: #ffc107 !important;
+    box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.25) !important;
+}
+
+/* Убираем проблемные стили, которые блокируют клики */
+input, textarea, select {
+    pointer-events: auto !important;
+    user-select: text !important;
+    -webkit-user-select: text !important;
+    -moz-user-select: text !important;
+    -ms-user-select: text !important;
+    -webkit-touch-callout: default !important;
+    -webkit-user-drag: none !important;
+    -khtml-user-drag: none !important;
+    -moz-user-drag: none !important;
+    -o-user-drag: none !important;
+    user-drag: none !important;
+}
+
+/* Убираем блокировку кликов */
+input:focus, textarea:focus, select:focus {
+    outline: none !important;
+    box-shadow: 0 0 0 0.2rem rgba(99, 102, 241, 0.25) !important;
+    pointer-events: auto !important;
+}
+
+/* Предотвращаем проблемы с модальными окнами */
+.modal {
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+}
+
+.modal input, .modal textarea, .modal select {
+    -webkit-user-select: text !important;
+    -moz-user-select: text !important;
+    -ms-user-select: text !important;
+    user-select: text !important;
+}
+
+/* Предотвращаем перетаскивание элементов формы */
+input, textarea, select {
+    -webkit-user-drag: none !important;
+    -khtml-user-drag: none !important;
+    -moz-user-drag: none !important;
+    -o-user-drag: none !important;
+    user-drag: none !important;
+}
+
+/* Отключаем закрытие модальных окон при клике вне их */
+.modal {
+    pointer-events: auto !important;
+}
+
+.modal-dialog {
+    pointer-events: auto !important;
+}
+
+.modal-content {
+    pointer-events: auto !important;
+}
+
+/* Защита от backdrop - делаем его кликабельным для закрытия */
+.modal-backdrop {
+    pointer-events: auto !important;
+}
+
+/* Восстанавливаем клики для кнопок закрытия */
+.modal .btn-close {
+    pointer-events: auto !important;
+}
+
+/* Восстанавливаем клики для кнопок в модальном окне */
+.modal .btn {
+    pointer-events: auto !important;
+}
+
+/* Восстанавливаем клики для полей ввода */
+.modal input, .modal textarea, .modal select {
+    pointer-events: auto !important;
+}
+
+/* Обычное поведение backdrop */
+.modal-backdrop.show {
+    pointer-events: auto !important;
+}

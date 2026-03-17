@@ -1,0 +1,1269 @@
+/* CSS переменные - Серая тема */
+:root {
+    --sidebar-width: 280px;
+    --sidebar-bg: #1f2937;
+    --sidebar-color: #f9fafb;
+    --sidebar-hover: #374151;
+    --primary-color: #6366f1;
+    --primary-hover: #4f46e5;
+    --secondary-color: #6b7280;
+    --success-color: #10b981;
+    --danger-color: #ef4444;
+    --warning-color: #f59e0b;
+    --info-color: #3b82f6;
+    --light-bg: #f8fafc;
+    --dark-bg: #111827;
+    --white: #ffffff;
+    --text-color: #1f2937;
+    --text-muted: #6b7280;
+    --border-color: #e5e7eb;
+    --card-bg: #ffffff;
+    --gradient-primary: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    --gradient-secondary: linear-gradient(135deg, #6b7280 0%, #9ca3af 100%);
+    --gradient-dark: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+    --gradient-success: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+    --gradient-warning: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+    --gradient-danger: linear-gradient(135deg, #ef4444 0%, #f87171 100%);
+}
+
+/* Базовые стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    color: var(--text-color);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* Лэйаут приложения */
+.app-layout {
+    display: flex;
+    min-height: 100vh;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Боковое меню - обновленный дизайн */
+.sidebar {
+    width: var(--sidebar-width);
+    background: var(--gradient-dark);
+    color: var(--sidebar-color);
+    position: fixed;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    overflow-y: auto;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
+    /* Скрываем скроллбар */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+/* Скрываем скроллбар для WebKit браузеров */
+.sidebar::-webkit-scrollbar {
+    display: none;
+}
+
+.sidebar-header {
+    padding: 25px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.sidebar-logo {
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+    background: var(--gradient-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.app-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.2;
+    background: linear-gradient(135deg, #fff 0%, #e5e7eb 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 140px);
+}
+
+.nav-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex: 1;
+}
+
+.nav-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    padding: 16px 20px;
+    color: var(--sidebar-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    font-weight: 500;
+}
+
+.nav-link:hover,
+.nav-item.active .nav-link {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--sidebar-color);
+    text-decoration: none;
+    transform: translateX(5px);
+}
+
+.nav-item.active .nav-link::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--gradient-primary);
+    border-radius: 0 2px 2px 0;
+}
+
+.nav-icon {
+    margin-right: 15px;
+    font-size: 1.2rem;
+    width: 20px;
+    text-align: center;
+}
+
+/* Информация о пользователе */
+.sidebar-user {
+    padding: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+}
+
+.user-icon {
+    font-size: 2.2rem;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.user-details {
+    flex: 1;
+}
+
+.user-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+    line-height: 1.2;
+}
+
+.user-role {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.logout-btn {
+    color: var(--sidebar-color);
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.logout-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--sidebar-color);
+    transform: translateY(-1px);
+}
+
+/* Основной контент */
+.main-content {
+    margin-left: var(--sidebar-width);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.content-header {
+    background: var(--white);
+    padding: 25px 35px;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(10px);
+}
+
+.page-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--text-color);
+    background: linear-gradient(135deg, var(--text-color) 0%, var(--text-muted) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.breadcrumb {
+    margin: 12px 0 0 0;
+    padding: 0;
+    background: none;
+    font-size: 0.9rem;
+}
+
+.content-body {
+    flex: 1;
+    padding: 35px;
+    overflow-y: auto;
+    height: 0; /* Это заставляет flex-элемент использовать доступное пространство */
+}
+
+/* Карточки - обновленный дизайн */
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    margin-bottom: 25px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.card-header {
+    padding: 22px;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-bottom: 1px solid var(--border-color);
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.card-body {
+    padding: 22px;
+}
+
+/* Статистические карточки */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-bottom: 35px;
+}
+
+.stat-card {
+    background: var(--white);
+    padding: 28px;
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-primary);
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.stat-icon {
+    font-size: 2.8rem;
+    margin-bottom: 18px;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--text-color);
+    margin-bottom: 10px;
+    background: linear-gradient(135deg, var(--text-color) 0%, var(--text-muted) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.stat-label {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/* Авторизация - полностью переработанный дизайн */
+.auth-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.auth-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="%23ffffff" fill-opacity="0.05" points="0,1000 1000,0 1000,1000"/></svg>');
+    background-size: cover;
+}
+
+.auth-card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 45px;
+    border-radius: 24px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 440px;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    position: relative;
+    z-index: 1;
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.auth-logo {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 20px;
+    border-radius: 16px;
+    background: var(--gradient-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin: 0 auto 20px;
+}
+
+.auth-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin: 0 0 8px 0;
+    background: linear-gradient(135deg, var(--text-color) 0%, var(--text-muted) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Вкладки авторизации */
+.auth-tabs {
+    display: flex;
+    margin-bottom: 25px;
+    border-radius: 12px;
+    background: #f8fafc;
+    padding: 4px;
+    border: 1px solid var(--border-color);
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 14px 16px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-muted);
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.tab-btn.active {
+    background: var(--white);
+    color: var(--primary-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tab-btn:hover:not(.active) {
+    color: var(--text-color);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+    animation: fadeInUp 0.4s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Формы */
+.form-group {
+    margin-bottom: 22px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-color);
+    font-size: 0.95rem;
+}
+
+.form-control,
+.form-select {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    background: var(--white);
+    font-family: inherit;
+}
+
+.form-control:focus,
+.form-select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+    transform: translateY(-1px);
+}
+
+.password-input {
+    position: relative;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: var(--text-muted);
+    padding: 6px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.password-toggle:hover {
+    color: var(--primary-color);
+    background: #f3f4f6;
+}
+
+/* Кнопки - обновленный дизайн */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 24px;
+    border: none;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    line-height: 1.5;
+    font-family: inherit;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn-primary {
+    background: var(--gradient-primary);
+    color: var(--white);
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+    color: var(--white);
+}
+
+.btn-secondary {
+    background: var(--gradient-secondary);
+    color: var(--white);
+}
+
+.btn-secondary:hover {
+    transform: translateY(-2px);
+    color: var(--white);
+}
+
+/* Тестовые учетные записи */
+.test-accounts {
+    margin-top: 25px;
+    padding: 20px;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.test-accounts h6 {
+    margin: 0 0 15px 0;
+    font-size: 0.95rem;
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.account-info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.account-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    gap: 10px;
+    min-width: 0;
+}
+
+.account-item:last-child {
+    border-bottom: none;
+}
+
+.account-item strong {
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-width: 110px;
+    flex-shrink: 0;
+}
+
+.account-item span {
+    color: var(--text-muted);
+    margin: 0 12px;
+    flex: 1;
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.03);
+    padding: 6px 10px;
+    border-radius: 6px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
+}
+
+/* Футер авторизации */
+.auth-footer {
+    background: var(--gradient-dark);
+    color: var(--sidebar-color);
+    text-align: center;
+    padding: 25px 0;
+    margin-top: auto;
+    position: relative;
+    z-index: 1;
+}
+
+.social-links {
+    margin-top: 18px;
+}
+
+.social-links a {
+    margin: 0 12px;
+    display: inline-block;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+.social-links img {
+    width: 20px;
+    height: 20px;
+    filter: brightness(0) invert(1);
+}
+
+/* Алерты */
+.alert {
+    padding: 18px 20px;
+    margin: 18px 0;
+    border-radius: 12px;
+    border: 1px solid transparent;
+    position: relative;
+    font-weight: 500;
+}
+
+.alert-success {
+    background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+    color: #065f46;
+    border-color: #a7f3d0;
+}
+
+.alert-error {
+    background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+    color: #991b1b;
+    border-color: #fecaca;
+}
+
+/* Адаптивность - Планшет (768px - 420px) */
+@media (max-width: 768px) and (min-width: 421px) {
+    .sidebar {
+        transform: translateX(-100%);
+        width: 260px;
+    }
+
+    .sidebar.mobile-show {
+        transform: translateX(0);
+    }
+
+    .main-content {
+        margin-left: 0;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .content-body {
+        padding: 1rem;
+        overflow-y: auto;
+        height: 0;
+    }
+
+    .content-header {
+        padding: 1rem;
+    }
+
+    .page-title {
+        font-size: 1.5rem;
+    }
+
+    .auth-card {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+
+    .stat-card {
+        padding: 1rem;
+    }
+
+    .stat-number {
+        font-size: 1.75rem;
+    }
+
+    .stat-label {
+        font-size: 0.8rem;
+    }
+
+    .table-responsive {
+        font-size: 0.875rem;
+    }
+
+    .btn-group .btn {
+        padding: 0.375rem 0.75rem;
+        font-size: 0.8rem;
+    }
+
+    .card {
+        margin-bottom: 1rem;
+    }
+
+    .card-body {
+        padding: 1rem;
+    }
+
+    .form-control,
+    .form-select {
+        font-size: 0.9rem;
+        padding: 0.5rem 0.75rem;
+    }
+
+    .btn {
+        font-size: 0.875rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .table th,
+    .table td {
+        padding: 0.5rem 0.25rem;
+        font-size: 0.8rem;
+    }
+
+    .table .btn-group .btn {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.75rem;
+    }
+}
+
+/* Адаптивность - Мобильная версия (до 420px) */
+@media (max-width: 420px) {
+    .sidebar {
+        transform: translateX(-100%);
+        width: 100%;
+        z-index: 1000;
+    }
+
+    .sidebar.mobile-show {
+        transform: translateX(0);
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 0.5rem;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+
+    .content-body {
+        padding: 0.75rem;
+        overflow-y: auto;
+        height: 0;
+    }
+
+    .content-header {
+        padding: 0.75rem;
+    }
+
+    .page-title {
+        font-size: 1.25rem;
+    }
+
+    .auth-card {
+        margin: 0.5rem;
+        padding: 1rem;
+    }
+
+    .stat-card {
+        padding: 0.75rem;
+    }
+
+    .stat-number {
+        font-size: 1.5rem;
+    }
+
+    .stat-label {
+        font-size: 0.75rem;
+    }
+
+    .table-responsive {
+        font-size: 0.75rem;
+        overflow-x: auto;
+    }
+
+    .btn-group .btn {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.7rem;
+    }
+
+    .card {
+        margin-bottom: 0.5rem;
+    }
+
+    .card-body {
+        padding: 0.75rem;
+    }
+
+    .form-control,
+    .form-select {
+        font-size: 0.8rem;
+        padding: 0.375rem 0.5rem;
+    }
+
+    .btn {
+        font-size: 0.75rem;
+        padding: 0.375rem 0.75rem;
+    }
+
+    .table th,
+    .table td {
+        padding: 0.25rem 0.125rem;
+        font-size: 0.7rem;
+        white-space: nowrap;
+    }
+
+    .table .btn-group .btn {
+        padding: 0.15rem 0.3rem;
+        font-size: 0.65rem;
+    }
+
+    .table .btn-group {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .table .btn-group .btn {
+        width: 100%;
+        margin: 0;
+    }
+
+    .page-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.5rem;
+    }
+
+    .page-header .btn-group {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .page-header .btn {
+        width: 100%;
+        margin-bottom: 0.25rem;
+    }
+
+    .search-filters {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .search-filters .form-control,
+    .search-filters .form-select {
+        width: 100%;
+    }
+
+    .modal-dialog {
+        margin: 0.25rem;
+        max-width: calc(100% - 0.5rem);
+    }
+
+    .modal-content {
+        border-radius: 0.5rem;
+    }
+
+    .modal-body {
+        padding: 0.75rem;
+    }
+
+    .modal-header {
+        padding: 0.75rem;
+    }
+
+    .modal-footer {
+        padding: 0.75rem;
+        flex-direction: column;
+    }
+
+    .modal-footer .btn {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    .modal-footer .btn:last-child {
+        margin-bottom: 0;
+    }
+
+    .account-item {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+        text-align: center;
+    }
+    
+    .account-item strong {
+        min-width: auto;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+    
+    .account-item span {
+        order: -1;
+        margin: 0;
+        flex: none;
+        width: 100%;
+    }
+
+    .account-item .btn {
+        align-self: stretch;
+    }
+
+    .tab-btn {
+        padding: 12px 8px;
+        font-size: 13px;
+    }
+}
+
+/* Дополнительные утилиты */
+.text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.bg-gradient-primary {
+    background: var(--gradient-primary);
+}
+
+.bg-gradient-dark {
+    background: var(--gradient-dark);
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(20px) scale(0.95); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0) scale(1); 
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Скроллбар */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #cbd5e1 0%, #94a3b8 100%);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #94a3b8 0%, #64748b 100%);
+}
+
+/* Отступы между кнопками */
+.btn {
+    margin-right: 8px !important;
+    margin-bottom: 8px !important;
+}
+
+.btn:last-child {
+    margin-right: 0 !important;
+}
+
+/* Отступы для кнопок в группах */
+.btn-group .btn {
+    margin-right: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.btn-group {
+    margin-right: 8px !important;
+    margin-bottom: 8px !important;
+}
+
+.btn-group:last-child {
+    margin-right: 0 !important;
+}
+
+/* Отступы для кнопок в модальных окнах */
+.modal-footer .btn {
+    margin-right: 8px !important;
+    margin-bottom: 0 !important;
+}
+
+.modal-footer .btn:last-child {
+    margin-right: 0 !important;
+}
+
+/* Отступы для кнопок в карточках */
+.card-footer .btn {
+    margin-right: 4px !important;
+    margin-bottom: 0 !important;
+}
+
+.card-footer .btn:last-child {
+    margin-right: 0 !important;
+}
+
+/* Отступы для кнопок в таблицах */
+.table .btn {
+    margin-right: 4px !important;
+    margin-bottom: 0 !important;
+}
+
+.table .btn:last-child {
+    margin-right: 0 !important;
+}
+
+/* Отступы для кнопок в заголовках */
+.card-header .btn {
+    margin-left: 8px !important;
+    margin-bottom: 0 !important;
+}
+
+.card-header .btn:first-child {
+    margin-left: 0 !important;
+}
+
+/* Отступы для кнопок в заголовках страниц */
+.d-flex.justify-content-between .btn {
+    margin-left: 8px !important;
+    margin-bottom: 0 !important;
+}
+
+.d-flex.justify-content-between .btn:first-child {
+    margin-left: 0 !important;
+}
+
+/* Отступы для кнопок в списках */
+.list-group-item .btn {
+    margin-right: 4px !important;
+    margin-bottom: 0 !important;
+}
+
+.list-group-item .btn:last-child {
+    margin-right: 0 !important;
+}
+
+/* Отступы для кнопок в формах */
+.form-group .btn {
+    margin-right: 8px !important;
+    margin-bottom: 0 !important;
+}
+
+.form-group .btn:last-child {
+    margin-right: 0 !important;
+}
+
+/* Отступы между кнопками */
+.btn {
+    margin-right: 8px !important;
+    margin-bottom: 8px !important;
+}
+
+.btn:last-child {
+    margin-right: 0 !important;
+}
+
+/* Отступы для кнопок в группах */
+.btn-group .btn {
+    margin-right: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.btn-group {
+    margin-right: 8px !important;
+    margin-bottom: 8px !important;
+}
+
+.btn-group:last-child {
+    margin-right: 0 !important;
+}
+
+/* Отступы для кнопок в модальных окнах */
+.modal-footer .btn {
+    margin-right: 8px !important;
+    margin-bottom: 0 !important;
+}
+
+.modal-footer .btn:last-child {
+    margin-right: 0 !important;
+}
+
+/* Отступы для кнопок в карточках */
+.card-footer .btn {
+    margin-right: 4px !important;
+    margin-bottom: 0 !important;
+}
+
+.card-footer .btn:last-child {
+    margin-right: 0 !important;
+}
+
+/* Отступы для кнопок в таблицах */
+.table .btn {
+    margin-right: 4px !important;
+    margin-bottom: 0 !important;
+}
+
+.table .btn:last-child {
+    margin-right: 0 !important;
+}
+
+/* Отступы для кнопок в заголовках */
+.card-header .btn {
+    margin-left: 8px !important;
+    margin-bottom: 0 !important;
+}
+
+.card-header .btn:first-child {
+    margin-left: 0 !important;
+}
+
+/* Отступы для кнопок в заголовках страниц */
+.d-flex.justify-content-between .btn {
+    margin-left: 8px !important;
+    margin-bottom: 0 !important;
+}
+
+.d-flex.justify-content-between .btn:first-child {
+    margin-left: 0 !important;
+}
+
+/* Отступы для кнопок в списках */
+.list-group-item .btn {
+    margin-right: 4px !important;
+    margin-bottom: 0 !important;
+}
+
+.list-group-item .btn:last-child {
+    margin-right: 0 !important;
+}
+
+/* Отступы для кнопок в формах */
+.form-group .btn {
+    margin-right: 8px !important;
+    margin-bottom: 0 !important;
+}
+
+.form-group .btn:last-child {
+    margin-right: 0 !important;
+}    margin-bottom: 0 !important;
+}
+
+.card-header .btn:first-child {
+    margin-left: 0 !important;
+}
+
+/* Отступы для кнопок в заголовках страниц */
+.d-flex.justify-content-between .btn {
+    margin-left: 8px !important;
+    margin-bottom: 0 !important;
+}
+
+.d-flex.justify-content-between .btn:first-child {
+    margin-left: 0 !important;
+}
+
+/* Отступы для кнопок в списках */
+.list-group-item .btn {
+    margin-right: 4px !important;
+    margin-bottom: 0 !important;
+}
+
+.list-group-item .btn:last-child {
+    margin-right: 0 !important;
+}
+
+/* Отступы для кнопок в формах */
+.form-group .btn {
+    margin-right: 8px !important;
+    margin-bottom: 0 !important;
+}
+
+.form-group .btn:last-child {
+    margin-right: 0 !important;
+}

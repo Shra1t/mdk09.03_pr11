@@ -1,0 +1,470 @@
+/* Современные стили для модальных окон */
+.modal-dialog {
+    max-width: 90vw !important;
+    margin: 1.75rem auto !important;
+}
+
+/* Переопределение Bootstrap классов для компактности */
+.modal-dialog.modal-lg {
+    max-width: 700px !important;
+}
+
+.modal-dialog.modal-xl {
+    max-width: 800px !important;
+}
+
+.modal-content {
+    max-height: none !important;
+    overflow: visible !important;
+    border: none !important;
+    border-radius: 12px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+    background: #ffffff !important;
+}
+
+.modal-body {
+    max-height: none !important;
+    overflow: visible !important;
+    padding: 1.5rem !important;
+    background: #fafafa !important;
+    border-radius: 0 0 12px 12px !important;
+}
+
+/* Современный вид форм в модалках */
+.modal .form-group {
+    margin-bottom: 1rem !important;
+    position: relative !important;
+}
+
+.modal .form-label {
+    margin-bottom: 0.5rem !important;
+    font-size: 0.9rem !important;
+    font-weight: 500 !important;
+    color: #374151 !important;
+    display: block !important;
+}
+
+.modal .form-control,
+.modal .form-select {
+    padding: 8px 12px !important;
+    height: 36px !important;
+    font-size: 0.9rem !important;
+    width: 100% !important;
+    border: 1px solid #d1d5db !important;
+    border-radius: 6px !important;
+    background: #ffffff !important;
+    transition: all 0.2s ease !important;
+}
+
+.modal .form-control:focus,
+.modal .form-select:focus {
+    border-color: #3b82f6 !important;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;
+    outline: none !important;
+}
+
+.modal textarea.form-control {
+    min-height: 80px !important;
+    height: auto !important;
+    padding: 8px 12px !important;
+    width: 100% !important;
+    resize: vertical !important;
+    font-family: inherit !important;
+    line-height: 1.5 !important;
+}
+
+/* Ограничение ширины, чтобы поля не тянулись на всю модалку */
+.modal .form-control,
+.modal .form-select,
+.modal textarea.form-control {
+    max-width: 500px !important;
+    width: 100% !important;
+}
+
+/* Компактные размеры полей */
+.modal .form-control,
+.modal .form-select {
+    max-width: 100% !important;
+    width: 100% !important;
+}
+
+/* Улучшенная сетка для модальных окон */
+.modal .row {
+    margin-bottom: 0.5rem !important;
+}
+
+.modal .col-md-6 {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+}
+
+.modal .form-group {
+    margin-bottom: 1rem !important;
+}
+
+/* Сетка для размещения полей в одну строку */
+.modal .form-row {
+    display: flex !important;
+    gap: 0.75rem !important;
+    margin-bottom: 0.4rem !important;
+    flex-wrap: wrap !important;
+}
+
+.modal .form-row .form-group {
+    flex: 1 !important;
+    margin-bottom: 0 !important;
+    min-width: 150px !important;
+}
+
+/* Убираем лишние ограничения */
+
+/* Простое и чистое размещение полей */
+.modal .modal-body {
+    padding: 0.5rem 1rem !important;
+}
+
+.modal .form-group {
+    margin-bottom: 0.3rem !important;
+}
+
+.modal .form-label {
+    font-size: 0.8rem !important;
+    margin-bottom: 0.15rem !important;
+}
+
+/* Современные счётчики и ошибки */
+.modal .character-counter {
+    margin-top: 0.25rem !important;
+    font-size: 0.8rem !important;
+    color: #6b7280 !important;
+    text-align: left !important;
+}
+
+.modal .invalid-feedback {
+    margin-top: 0.25rem !important;
+    font-size: 0.8rem !important;
+    color: #dc2626 !important;
+    display: block !important;
+}
+
+.modal .valid-feedback {
+    margin-top: 0.25rem !important;
+    font-size: 0.8rem !important;
+    color: #059669 !important;
+    display: block !important;
+}
+
+/* Стили для кнопок в модалках */
+.modal-footer .btn {
+    padding: 0.5rem 1.25rem !important;
+    font-size: 0.9rem !important;
+    font-weight: 500 !important;
+    border-radius: 6px !important;
+    transition: all 0.2s ease !important;
+    border: none !important;
+}
+
+.modal-footer .btn-secondary {
+    background: #f3f4f6 !important;
+    color: #374151 !important;
+}
+
+.modal-footer .btn-secondary:hover {
+    background: #e5e7eb !important;
+    color: #111827 !important;
+}
+
+.modal-footer .btn-primary {
+    background: #3b82f6 !important;
+    color: #ffffff !important;
+}
+
+.modal-footer .btn-primary:hover {
+    background: #2563eb !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3) !important;
+}
+
+.modal-header {
+    padding: 1.5rem 1.5rem 1rem 1.5rem !important;
+    border-bottom: 1px solid #e5e7eb !important;
+    background: #ffffff !important;
+    border-radius: 12px 12px 0 0 !important;
+}
+
+.modal-header .modal-title {
+    font-size: 1.25rem !important;
+    font-weight: 600 !important;
+    color: #111827 !important;
+    margin: 0 !important;
+}
+
+.modal-header .btn-close {
+    background: none !important;
+    border: none !important;
+    font-size: 1.5rem !important;
+    color: #6b7280 !important;
+    opacity: 0.7 !important;
+    transition: opacity 0.2s ease !important;
+}
+
+.modal-header .btn-close:hover {
+    opacity: 1 !important;
+    color: #374151 !important;
+}
+
+.modal-footer {
+    padding: 1rem 1.5rem 1.5rem 1.5rem !important;
+    border-top: 1px solid #e5e7eb !important;
+    background: #ffffff !important;
+    border-radius: 0 0 12px 12px !important;
+    display: flex !important;
+    justify-content: flex-end !important;
+    gap: 0.75rem !important;
+}
+
+/* Дополнительные стили для улучшения внешнего вида */
+.modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    backdrop-filter: blur(2px) !important;
+}
+
+.modal.show .modal-dialog {
+    transform: scale(1) !important;
+    transition: transform 0.3s ease-out !important;
+}
+
+.modal .form-control.is-invalid {
+    border-color: #dc2626 !important;
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1) !important;
+}
+
+.modal .form-control.is-valid {
+    border-color: #059669 !important;
+    box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.1) !important;
+}
+
+/* Стили для разделителей в формах */
+.modal .form-divider {
+    border-top: 1px solid #e5e7eb !important;
+    margin: 1.5rem 0 !important;
+    position: relative !important;
+}
+
+.modal .form-divider::before {
+    content: attr(data-text) !important;
+    position: absolute !important;
+    top: -0.75rem !important;
+    left: 0 !important;
+    background: #fafafa !important;
+    padding: 0 0.5rem !important;
+    color: #6b7280 !important;
+    font-size: 0.8rem !important;
+    font-weight: 500 !important;
+}
+
+/* Стили для маленьких модальных окон */
+.modal-dialog.modal-sm {
+    max-width: 400px !important;
+}
+
+/* Стили для средних модальных окон */
+.modal-dialog.modal-md {
+    max-width: 500px !important;
+}
+
+.modal-dialog.modal-sm .modal-body {
+    padding: 1rem !important;
+}
+
+.modal-dialog.modal-sm .form-group {
+    margin-bottom: 0.75rem !important;
+}
+
+.modal-dialog.modal-sm .form-control,
+.modal-dialog.modal-sm .form-select {
+    height: 32px !important;
+    padding: 6px 10px !important;
+    font-size: 0.85rem !important;
+}
+
+.modal-dialog.modal-sm .form-label {
+    font-size: 0.85rem !important;
+    margin-bottom: 0.25rem !important;
+}
+
+.modal-dialog.modal-sm .character-counter {
+    font-size: 0.7rem !important;
+    margin-top: 0.15rem !important;
+}
+
+/* Стили для средних модальных окон */
+.modal-dialog.modal-md .modal-body {
+    padding: 1.25rem !important;
+}
+
+.modal-dialog.modal-md .form-group {
+    margin-bottom: 0.75rem !important;
+}
+
+.modal-dialog.modal-md .form-control,
+.modal-dialog.modal-md .form-select {
+    height: 34px !important;
+    padding: 7px 11px !important;
+    font-size: 0.9rem !important;
+}
+
+.modal-dialog.modal-md .form-label {
+    font-size: 0.9rem !important;
+    margin-bottom: 0.4rem !important;
+}
+
+.modal-dialog.modal-md .character-counter {
+    font-size: 0.75rem !important;
+    margin-top: 0.2rem !important;
+}
+
+/* Адаптивность для планшета (768px - 420px) */
+@media (max-width: 768px) and (min-width: 421px) {
+    .modal-dialog {
+        max-width: 90vw !important;
+        margin: 1rem auto !important;
+    }
+    
+    .modal-content {
+        max-height: none !important;
+        border-radius: 10px !important;
+    }
+    
+    .modal-body {
+        max-height: none !important;
+        padding: 1.25rem !important;
+    }
+    
+    .modal-header {
+        padding: 1.25rem !important;
+    }
+    
+    .modal-footer {
+        padding: 1.25rem !important;
+        flex-direction: row !important;
+    }
+    
+    .modal-footer .btn {
+        width: auto !important;
+        margin-bottom: 0 !important;
+    }
+}
+
+/* Адаптивность для мобильных устройств (до 420px) */
+@media (max-width: 420px) {
+    .modal-dialog {
+        max-width: 95vw !important;
+        margin: 0.5rem auto !important;
+    }
+    
+    .modal-content {
+        max-height: none !important;
+        border-radius: 8px !important;
+    }
+    
+    .modal-body {
+        max-height: none !important;
+        padding: 0.75rem !important;
+    }
+    
+    .modal-header {
+        padding: 0.75rem !important;
+    }
+    
+    .modal-footer {
+        padding: 0.75rem !important;
+        flex-direction: column !important;
+    }
+    
+    .modal-footer .btn {
+        width: 100% !important;
+        margin-bottom: 0.5rem !important;
+    }
+    
+    .modal-footer .btn:last-child {
+        margin-bottom: 0 !important;
+    }
+}
+
+/* Исправление для форм с длинным содержимым */
+.modal-body .form-group {
+    margin-bottom: 1rem !important;
+}
+
+.modal-body .form-control {
+    max-width: 100% !important;
+    word-wrap: break-word !important;
+}
+
+.modal-body textarea {
+    resize: vertical !important;
+    min-height: 60px !important;
+}
+
+/* Исправление для таблиц в модальных окнах */
+.modal-body .table-responsive {
+    max-height: 40vh !important;
+    overflow-y: auto !important;
+}
+
+/* Исправление для кнопок в модальных окнах */
+.modal-footer .btn {
+    margin-right: 8px !important;
+    margin-bottom: 0 !important;
+}
+
+.modal-footer .btn:last-child {
+    margin-right: 0 !important;
+}
+
+/* Исправление для таблиц на всех страницах */
+.table-responsive {
+    max-height: none !important;
+}
+
+.table td, .table th {
+    max-width: 200px !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+}
+
+.table td:first-child, .table th:first-child {
+    max-width: 100px !important;
+}
+
+.table td:last-child, .table th:last-child {
+    max-width: 150px !important;
+}
+
+/* Исправление для длинных текстов в ячейках */
+.table td {
+    vertical-align: middle !important;
+}
+
+/* Исправление для карточек */
+.card-body {
+    overflow-x: auto !important;
+}
+
+/* Исправление для форм */
+.form-control {
+    max-width: 100% !important;
+    word-wrap: break-word !important;
+}
+
+/* Исправление для кнопок в таблицах */
+.table .btn-group {
+    flex-wrap: nowrap !important;
+}
+
+.table .btn {
+    white-space: nowrap !important;
+    font-size: 0.875rem !important;
+}
+
